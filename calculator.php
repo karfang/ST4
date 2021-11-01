@@ -159,7 +159,7 @@
     echo $package_food." consumed.<br />";
   }
 
-  $outputstring = $postcode."\t".$numberOfHousehold." people\t" .$kwh." kWh\t". $tank." barrel\t".$fuel." litres \t".$km." km\t" .$bus_distance." km\t".$motor_distance ." km\t". $distance." km\t" .$organic_food." organic food consumed\t".$package_food." package food consumed\t".$carbon."kg/month\n";
+  $outputstring = $postcode."\t".$numberOfHousehold." people\t" .$kwh." kWh\t". $tank." barrel\t".$fuel." litres \t".$km." km\t" .$bus_distance." km\t".$motor_distance ." km\t". $distance." km\t" .$carbon."kg/month\n";
 
 
   @$fp =fopen("$DOCUMENT_ROOT/st4/carbon/carbon.txt", 'ab');
