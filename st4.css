@@ -305,7 +305,7 @@ nav .fa{
 	
 	nav .fa{
 		display: block;
-		columns: #fff;
+		columns:white;
 		margin: 10px;
 		font-size: 22px;
 		cursor: pointer;
