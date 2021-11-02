@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Carbon Footprint - Calculator</title>
+	<link rel="stylesheet" href="st4.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+		function showAlert(){
+     	var alerttext = "To avoid double-counting, please do not fill in this blank if you have already entered your data in the petrol consumption's blank.Thank you.";
+     	alert(alerttext);
+     }
+	</script>
+</head>
+<body>
+	<section class="sub-header">
+		<nav>
+			<a href="index.html"></a>
+			<div class="nav-links" id="navLinks">
+				<i class="fa fa-close" onclick="hideMenu()"></i>
+				<ul>
+					<li><a href="index.html">HOME</a></li>
+					<li><a href="about.html">ABOUT US</a></li>
+					<li><a href="calculator.html">CALCULATOR</a></li>
+                    <li><a href="viewdata.php">DATA DISPLAY</a></li>
+					<li><a href="privacy.html">PRIVACY POLICY</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+				</ul>
+			</div>
+			<i class="fa fa-bars" onclick="showMenu()"></i>
+		</nav>
+			<h1>Calculator</h1>
+	</section>
+	<br>
+
+		<div class="content">
+		<link rel="stylesheet" href="calculator.css">
+		<div class="title" style="text-align: center; font-size: 160%;"><b>Carbon Footprint Calculator</b></div><br/>
+		<form action="calculator.php" method="post" id="cal_part">
+			<div class="calculate-details">
+				
+				<div class="input-box">
+					<div class="tooltip">
+							How many people in your household?<i class="fa fa-question-circle">
+							<span class="tooltiptext"> - Please remember to include yourself. <br> - Only those who stay for at least a month should be counted.</span>
+							</i>
+					</div>
+					<input type="number" id="numberOfHousehold" name="numberOfHousehold" min="1" required>
+				</div>
+		<br/>
+				<div class="input-box">
+					<div class="tooltip">
+						  How much electricity used per month: <i class="fa fa-question-circle">
+							<span class="tooltiptext">
+								Please fill in using kWh unit. The actual reading may be found on your electric bill.
+								<img src="bill.png" width="240px" height="100px">
+							</span>
+						  </i>
+				  	</div>
+				  	<input type="number" id="kwh" name="kwh" placeholder="Please enter the value in kWh" required/>
+				</div>
+		<br/>
+	 			<div class="input-box">
+			    Your consumption of cooking gas per month (decimal can be accepted):
+			    <select id="gas" name="gas">
+			        <option value="10" id="small" name="small">10kg</option>
+			        <option value="12" id="medium" name="medium">12kg</option>
+			        <option value="14" id="big" name="big">14kg</option>
+			        <input type="number" id="tank" name="tank" placeholder="ex: one barrel of gas tank = 1 " required/>
+			    </select>
+			  </div>
+		<br/>
+			  <div class="input-box">
+			  	<div class="tooltip">
+						Total petrol/diesel consumption for car vehicle per month: <i class="fa fa-question-circle">
+						<span class="tooltiptext">
+						If you don't know how many litres used each month, please proceed to the following question, which will compute based on distance.
+						<hr/>								
+						Diesel contains 86.2% carbon, or 720 grammes of carbon per litre of diesel. To convert this carbon to CO2, 1920 grammes of oxygen are required. The total CO2/liter diesel is thus 720 + 1920 = 2640 grammes.<br/><br/>
+						Petrol contains 87 percent carbon, or 652 grammes of carbon per litre of gasoline. To convert this carbon to CO2, 1740 grammes of oxygen are required. The total is 652 + 1740 = 2392 grammes of CO2/liter of gasoline.
+			  		</span>
+						</i>
+			      <select id="vehicle_litres" name="vehicle_litres">
+			        <option id="petrol" name="petrol">Petrol</option>
+			        <option id="diesel" name="diesel">Diesel</option>
+			        <input type="number" id="fuel" name="fuel" placeholder="Please enter the value in litres." required>
+			      </select>
+			    </div>
+		  	</div>
+	  <br/>
+	  		<div class="input-box">
+					<div class="tooltip">
+						Total distance travelled by car vehicle per month: <i class="fa fa-question-circle">
+						<span class="tooltiptext">
+						If you don't know how many litres of petrol your vehicle uses, please fill in this blanks (only for car; taxi,grab also accepted)
+						<hr/>
+						petrol = 0.1201kg CO2/km.<br/>
+						diesel = 0.132kg CO2/km.
+						</span>
+						</i>
+						<select id="vehicle_distance" name="vehicle_distance">
+			        <option id="petrol_distance" name="petrol_distance">Petrol</option>
+	  	        <option id="diesel_distance" name="diesel_distance">Diesel</option>
+			        <input type="number" id="km" name="km" placeholder="Please enter the value in kilometres." onclick="showAlert()">
+				    </select>
+				  </div>
+		  	</div>
+		<br/>
+				<div class="input-box">
+					<div class="tooltip">
+						  Total distance travelled by bus per month: <i class="fa fa-question-circle">
+							<span class="tooltiptext">
+								Please fill in using unit of km. The source used as the basis for the Carbon Independent calculator is the Defra document [19]. <br/>This calculates the average CO2 emission from buses as 0.089 kg per passenger km.
+							</span>
+						  </i>
+				  	</div>
+				  	<input type="number" id="bus_distance" name="bus_distance" placeholder="Please enter the value in kilometres.">
+				</div>
+    <br/>
+        <div class="input-box">
+					Total distance travelled by motor per month:
+          <select id="motor" name="motor">
+            <option value="below250" id="below250" name="below250">below 250cc</option>
+            <option value="250to500" id="250to500" name="250to500">250 - 500cc</option>
+            <option value="above500" id="above500" name="above500">above 500cc</option>
+            <input type="number" id="motor_distance" name="motor_distance" placeholder="Please enter the value in kilometres.">
+          </select>
+        </div>
+    <br/>
+			  <div class="input-box">
+			  	<div class="tooltip">
+						Total distance travelled by flight per month: <i class="fa fa-question-circle">
+							<span class="tooltiptext">
+								Please visit this page <a href="https://www.distance.to">(click here to visit)</a> to find out how far you've travelled. To get an exact computation, please convert your answer to kilometres.
+							</span>
+						</i>
+			      <select id="travel" name="travel">
+				        <option value="le" id="less" name="less">Less than 200km</option>
+				        <option value="av" id="average" name="average">200km - 1000km</option>
+				        <option value="ma" id="many" name="many">up to 1000km</option>
+				        <input type="number" id="distance" name="distance" placeholder="Please enter the value in kilometres.">
+			      </select>
+			    </div>
+			  </div>
+		<br/>
+				<div class="input-box">
+				How much of food that you consume is organic per month?
+				  <select id="numberOfOrganicFood" name="organic_food">
+						<option value="none" name="none">None</option>
+						<option value="some" name="some">Some</option>
+						<option value="most" name="most">Most</option>
+						<option value="all" name="all">All</option>
+					</select>
+				</div>
+		<br/>
+				<div class="input-box">
+				How much of your food is packaged / processed per month (e.g.'ready meals', tins)?
+					<select id="numberOfPackagingFood" name="package_food">
+						<option value="very_little" name="very_little">Very Little</option>
+						<option value="average" name="average">Average</option>
+						<option value="above_average" name="above_average">Above Average</option>
+						<option value="almost_all" name="almost_all">Almost All</option>
+					</select>
+				</div>
+		<br/>
+        <div class="input-box">
+					Name : <input type="text" name="name" id="name" required>
+					Postcode : <input type="text" name="postcode" id="postcode" required>
+					Email : <input type="text" name="email" id="email" required>
+        </div>
+    <br/>
+
+
+				<div class="button">
+				
+				<a href="#" onclick="document.getElementById('cal_part').submit();"><input type="button" value="Submit"></a>
+				<br><br>
+				<input type="reset" value="Reset" onclick="hideTotal()">
+				</div>
+				<br/><br/>
+			</div>
+		</div>
+	</form>
+</section>
+
+	<section class="footer">
+		<h4>Calculator</h4>
+		<div class="icons">
+				<i class="fa fa-facebook"></i>
+				<i class="fa fa-instagram"></i>
+				<i class="fa fa-twitter"></i>
+				<i class="fa fa-linkedin"></i>
+		</div>
+		<p>Made with <i class="fa fa-heart-o"> </i> by me</p>
+	</section>
+
+	<script>
+		var navLinks = document.getElementById('navLinks');
+		function showMenu() {
+			navLinks.style.right = "0";
+		}
+		function hideMenu() {
+			navLinks.style.right = "-200px";
+		}
+	</script>
+
+</body>
+</html> 

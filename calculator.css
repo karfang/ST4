@@ -1,0 +1,171 @@
+.content{
+	max-width: 700px;
+	background:	#e6f7ed;
+	padding: 25px 30px;
+	border-radius: 5px;
+	width: 80%;
+	margin: auto;
+}
+
+.content{
+	font-size: 15px;
+	font-weight: 500;
+	text-align: left;
+	position: relative;
+}
+
+.content.title::before{
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 3px;
+	width: 30px;
+	background: #E2F3FF;
+}
+
+.content form.calculate-details{
+	display: flex;
+	flex-wrap: wrap;	
+	justify-content: space-between;
+	margin: 20px 0 12px 0;
+}
+
+form.calculate-details .input-box{
+	margin-bottom: 20px;
+	width: calc(100% / 2-20px);
+}
+
+.calculate-details .input-box .details{
+	display: block;
+	font-weight: 500;
+	margin-bottom:5px;
+}
+
+.calculate-details .input-box input{
+	height: 25px;
+	width: 100%;
+	outline: none;
+	border-radius: 5px;
+	border: 0px solid #ccc;
+	padding-left: 15px;
+	font-size: 16px;
+	border-bottom-width: 2px:;
+	transition:all 0.3s ease;
+	font-family: 'Papyrus', sans-serif;
+}
+
+.calculate-details .input-box input:focus,
+.calculate-details .input-box input:valid{
+	border-color: #E2F3FF;
+}
+form .button{
+	height: 30px;
+	margin: 35px;
+	text-align: center;
+	border-radius: 2px;
+}
+
+form .button input{
+	height: 100%;
+	width: 50%;
+	outline-color: none;
+	color: black;
+	font-size: 18px;
+	font-weight: 500;
+	border-radius: 5px;
+	letter-spacing: 1px;
+	background: background-image: linear-gradient(to right top, #f2f2f2, #e5e5e5, #d8d8d8, #cccccc, #bfbfbf);
+}
+
+form .button input:hover{
+	background: background-image: linear-gradient(to right top, #f2f2f2, #e5e5e5, #d8d8d8, #cccccc, #bfbfbf);
+}
+
+.tooltip .fa{
+  position: relative;
+  display: inline-block;
+}
+.tooltip .tooltiptext{
+  visibility: hidden;
+  width: 250px;
+  background-color:	#F0F0F0;
+  color: black;
+  text-align: left;
+  padding: 5px 5px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 14px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.extra {
+	width: 60%;
+	margin: auto;
+	padding-top: 10px;
+	padding-bottom: 50px;
+}
+
+.info{
+	flex-basis: 48%;
+	padding: 30px 2px;
+}
+
+.info img{
+	width: 70%;
+	height: 80%;
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.info h1{
+	padding-top: 0;
+	font-family: 'Papyrus', cursive;
+	text-align: center;
+	font-size: 40px;
+}
+
+.info p{
+	padding: 15px 0 25px;
+	font-family: 'Monaco', sans-serif;
+}
+
+.info ul{
+	font-family:'Monaco', sans-serif;
+	color: #999999;
+}
+
+.info ul li{
+	padding: 15px 0 0px;
+	flex-basis: 48%;
+	font-family: 'Monaco', sans-serif;
+	color: #999999;
+}
+
+@media(max-width: 700px){
+	.content{
+		max-width: 100%;
+	}
+
+	form.calculate-details .input-box{
+		margin-bottom: 15px;
+		width: 100%;
+	}
+	.content form.calculate-details{
+		max-height: 300px;
+		overflow-y: scroll;
+	}
+	.calculate-details::webkit-scrollbar{
+		width: 0;
+	}
